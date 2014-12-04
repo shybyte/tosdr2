@@ -27,7 +27,8 @@ Template.submitPoint.events({
         tldr: template.find('#summaryField').value,
         sources: [template.find('#sourceField').value]
       },
-      approved: false
+      approved: false,
+      submittedBy: Meteor.userId()
     };
     console.log('Save new point:', newPoint);
     Points.insert(newPoint);

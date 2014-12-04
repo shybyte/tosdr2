@@ -4,8 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 iron:router
 mizzao:bootstrap-3
 stevezhu:lodash
@@ -14,4 +12,4 @@ natestrauser:select2
 zimme:select2-bootstrap3-css
 ian:accounts-ui-bootstrap-3
 accounts-password
-
+sacha:spin
