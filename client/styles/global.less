@@ -1,0 +1,71 @@
+body {
+  margin: 1em 2em;
+}
+
+#pageContent {
+  //margin: 1em 2em;
+}
+
+#submit-point-form {
+  min-height: 400px;
+
+  .hero-unit {
+    text-align: center;
+    background-color: transparent;
+  }
+
+  .thirdtos {
+    margin-top: 6em;
+    font-size: 0.8em;
+  }
+
+  #titleField {
+    display: block;
+    margin-bottom: 0;
+    width: 100%;
+
+    @media (min-width: 650px) {
+      width: 600px;
+    }
+  }
+
+  #summaryField {
+    min-height: 100px;
+  }
+
+  .radio-inline {
+    font-weight: bold;
+  }
+
+  .radio-inline.good {
+    color: #79B752;
+  }
+  .radio-inline.neutral {
+    color: #999999;
+  }
+  .radio-inline.bad {
+    color: #D66F2C;
+  }
+  .radio-inline.blocker {
+    color: #C43C35;
+  }
+
+  textarea {
+    width: 40em;
+    min-height: 5em;
+  }
+
+  input[type=url],
+  input[type=text],
+  select{
+    width: 20em;
+  }
+
+  #serviceFields input, #sourceField[type="url"] {
+  }
+
+  .form-actions {
+    padding: 1em 0;
+    margin-bottom: 1em;
+  }
+}

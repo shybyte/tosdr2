@@ -1,0 +1,95 @@
+<template name="submitPoint">
+
+    <section id="submit-point-form">
+        <form class="submitForm" role="form">
+            <fieldset>
+                <legend>Submit a point about a clause</legend>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="titleField" name="title" required=""
+                           placeholder="e.g. “This service tracks you on other websites” or “Broad copyright license on your content”">
+                </div>
+
+                <div class="form-group">
+                    <label class="radio-inline good"><input type="radio" name="point" id="pointGood"
+                                                            value="good">Good</label>
+                    <label class="radio-inline neutral"><input type="radio" name="point" id="pointNeutral"
+                                                               value="neutral">Neutral</label>
+                    <label class="radio-inline bad"><input type="radio" required="" name="point" id="pointBad"
+                                                           value="bad">Bad</label>
+                    <label class="radio-inline blocker"><input type="radio" name="point" id="pointBlocker"
+                                                               value="blocker">Blocker</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="summary">Please summarise this clause <a href="#FIXME" target="_blank"
+                                                                         class="markdownparser hidden until the feature is made">Parsed
+                        as Markdown</a></label>
+
+                    <textarea name="summary" id="summaryField" required="" class="form-control"
+                              placeholder="What the clause in the terms does. Try not to make more than 5 sentences, but sometimes more is needed. Be creative. Feel free to include some quotes from the terms directly. It is very important that it is easy to understand and written in plain English."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label id="services">Service(s) to which the point applies</label>
+                    <span id="serviceFields">
+                        <input type="text" id="service0" class="form-control"
+                               data-provide="typeahead" autocomplete="off"
+                               data-source="[&quot;500px&quot;,&quot;allrecipes&quot;,&quot;amazon&quot;,&quot;app-net&quot;,&quot;apple&quot;,&quot;apple-icloud&quot;,&quot;bearshare&quot;,&quot;bit-ly&quot;,&quot;cloudant&quot;,&quot;couchsurfing&quot;,&quot;delicious&quot;,&quot;disqus&quot;,&quot;dropbox&quot;,&quot;duckduckgo&quot;,&quot;ebuddy&quot;,&quot;envato&quot;,&quot;evernote&quot;,&quot;facebook&quot;,&quot;faranow&quot;,&quot;flattr&quot;,&quot;flickr&quot;,&quot;freeforums&quot;,&quot;github&quot;,&quot;google&quot;,&quot;grammarly&quot;,&quot;gravatar&quot;,&quot;habbo&quot;,&quot;hypster&quot;,&quot;identi-ca&quot;,&quot;ifttt&quot;,&quot;informe&quot;,&quot;instagram&quot;,&quot;lastpass&quot;,&quot;microsoft&quot;,&quot;microsoft-store&quot;,&quot;mint.com&quot;,&quot;mykolab-com&quot;,&quot;nabble&quot;,&quot;netflix&quot;,&quot;olx&quot;,&quot;owncube&quot;,&quot;phpbb&quot;,&quot;rapidshare&quot;,&quot;runescape&quot;,&quot;seenthis&quot;,&quot;skype&quot;,&quot;sonic-net&quot;,&quot;soundcloud&quot;,&quot;spotify&quot;,&quot;steam&quot;,&quot;tumblr&quot;,&quot;twitpic&quot;,&quot;twitter&quot;,&quot;vbulletin&quot;,&quot;videobb&quot;,&quot;whatsapp&quot;,&quot;wikipedia&quot;,&quot;wordfeud&quot;,&quot;wordpress-com&quot;,&quot;world-of-warcraft&quot;,&quot;xfire&quot;,&quot;xing&quot;,&quot;yahoo&quot;,&quot;youtube&quot;,&quot;zoosk&quot;]">
+                    </span>
+                    <button class="btn btn-inline" type="button" id="addServiceField">Add one</button>
+                </div>
+
+                <!--          You need to suggest services which have a file in services/ if a user types a service which does not exist in the database, redirect him or her to the service form-->
+                <div class="form-group">
+                    <label for="source">Source</label>
+                    <input type="url" id="sourceField" class="form-control" name="source"
+                           placeholder="http://www.example.com/tos">
+                </div>
+
+                <div class="form-group">
+                    <label for="topics">Topic</label>
+                    <select id="topic" class="form-control">
+                        <option>Select a topic</option>
+                        <option>business-transfer</option>
+                        <option>changes</option>
+                        <option>changes-involvement</option>
+                        <option>changes-notice</option>
+                        <option>cookies</option>
+                        <option>copyright-scope</option>
+                        <option>data-export</option>
+                        <option>governance</option>
+                        <option>guarantee</option>
+                        <option>jurisdiction-law</option>
+                        <option>law-enforcement</option>
+                        <option>law-gov</option>
+                        <option>leave</option>
+                        <option>logs-length</option>
+                        <option>meta</option>
+                        <option>ownership</option>
+                        <option>personal information</option>
+                        <option>personal-data</option>
+                        <option>readability</option>
+                        <option>scope of the copyright license</option>
+                        <option>suspension</option>
+                        <option>third</option>
+                        <option>track</option>
+                        <option>tracking</option>
+                        <option>user-choice</option>
+                        <option>user-info</option>
+                        <option>waiver</option>
+                    </select>
+                </div>
+            </fieldset>
+            <div class="form-actions">
+                <button class="btn btn-primary btn-large" id="postPoint">Send</button>
+                <span class="help-user">Submitting as shybyte@gmail.com <a href="" class="signoutButton">(Not your email
+                    address? Log out!)</a></span></div>
+        </form>
+
+        <p>Your contribution will be published under <a href="legal.html">a Creative Commons BY-SA license</a>.</p>
+
+    </section>
+
+</template>
