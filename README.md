@@ -17,5 +17,5 @@ Cd into the project root directory (where this README is located) and enter:
 meteor
 ```
 
-Open http://localhost:3000 in your browser.
+Open [http://localhost:3000] (http://localhost:3000) in your browser.
 
