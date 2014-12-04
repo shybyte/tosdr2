@@ -4,6 +4,9 @@ Template.submitPoint.helpers({
   },
   topics: function () {
     return Topics.find();
+  },
+  currentUserEmailAddress: function () {
+    return Meteor.user() ? Meteor.user().emails[0].address : '';
   }
 
 });
@@ -33,6 +36,10 @@ Template.submitPoint.events({
     console.log('Save new point:', newPoint);
     Points.insert(newPoint);
     Router.go('points');
+  },
+  'click .signoutButton': function (event) {
+    event.preventDefault();
+    Meteor.logout();
   }
 })
 
