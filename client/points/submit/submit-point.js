@@ -26,7 +26,8 @@ Template.submitPoint.events({
         point: $('input[name="point"]:checked').val(),
         tldr: template.find('#summaryField').value,
         sources: [template.find('#sourceField').value]
-      }
+      },
+      approved: false
     };
     console.log('Save new point:', newPoint);
     Points.insert(newPoint);

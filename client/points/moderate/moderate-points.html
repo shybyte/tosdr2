@@ -1,0 +1,22 @@
+<template name="moderatePoints">
+    <h2>Unapproved Points</h2>
+    <ul>
+        {{#each this}}
+            <li>
+                {{>moderatePoint}}
+            </li>
+        {{/each}}
+    </ul>
+</template>
+
+<template name="moderatePoint">
+    _ID: {{_id}} <br/>
+    ID: {{id}} <br/>
+    Title: {{title}} <br/>
+    Topics: {{topics}} <br/>
+    Services: {{services}} <br/>
+    Point: {{tosdr.point}} <br/>
+    Summary: {{tosdr.tldr}} <br/>
+    Sources: {{tosdr.sources}} <br/>
+    <button class="approveButton">Approve</button><button class="deleteButton">Delete</button>
+</template>
