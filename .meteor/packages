@@ -10,4 +10,6 @@ iron:router
 mizzao:bootstrap-3
 stevezhu:lodash
 less
+natestrauser:select2
+zimme:select2-bootstrap3-css
 

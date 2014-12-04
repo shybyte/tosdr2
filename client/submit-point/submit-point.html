@@ -1,5 +1,4 @@
 <template name="submitPoint">
-
     <section id="submit-point-form">
         <form class="submitForm" role="form">
             <fieldset>
@@ -32,13 +31,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label id="services">Service(s) to which the point applies</label>
-                    <span id="serviceFields">
-                        <input type="text" id="service0" class="form-control"
-                               data-provide="typeahead" autocomplete="off"
-                               data-source="[&quot;500px&quot;,&quot;allrecipes&quot;,&quot;amazon&quot;,&quot;app-net&quot;,&quot;apple&quot;,&quot;apple-icloud&quot;,&quot;bearshare&quot;,&quot;bit-ly&quot;,&quot;cloudant&quot;,&quot;couchsurfing&quot;,&quot;delicious&quot;,&quot;disqus&quot;,&quot;dropbox&quot;,&quot;duckduckgo&quot;,&quot;ebuddy&quot;,&quot;envato&quot;,&quot;evernote&quot;,&quot;facebook&quot;,&quot;faranow&quot;,&quot;flattr&quot;,&quot;flickr&quot;,&quot;freeforums&quot;,&quot;github&quot;,&quot;google&quot;,&quot;grammarly&quot;,&quot;gravatar&quot;,&quot;habbo&quot;,&quot;hypster&quot;,&quot;identi-ca&quot;,&quot;ifttt&quot;,&quot;informe&quot;,&quot;instagram&quot;,&quot;lastpass&quot;,&quot;microsoft&quot;,&quot;microsoft-store&quot;,&quot;mint.com&quot;,&quot;mykolab-com&quot;,&quot;nabble&quot;,&quot;netflix&quot;,&quot;olx&quot;,&quot;owncube&quot;,&quot;phpbb&quot;,&quot;rapidshare&quot;,&quot;runescape&quot;,&quot;seenthis&quot;,&quot;skype&quot;,&quot;sonic-net&quot;,&quot;soundcloud&quot;,&quot;spotify&quot;,&quot;steam&quot;,&quot;tumblr&quot;,&quot;twitpic&quot;,&quot;twitter&quot;,&quot;vbulletin&quot;,&quot;videobb&quot;,&quot;whatsapp&quot;,&quot;wikipedia&quot;,&quot;wordfeud&quot;,&quot;wordpress-com&quot;,&quot;world-of-warcraft&quot;,&quot;xfire&quot;,&quot;xing&quot;,&quot;yahoo&quot;,&quot;youtube&quot;,&quot;zoosk&quot;]">
-                    </span>
-                    <button class="btn btn-inline" type="button" id="addServiceField">Add one</button>
+                    <label for="services">Service(s) to which the point applies</label>
+
+                    <div class="select2-wrapper">
+                        <select name="services" id="services" multiple class="form-control input-lg select2">
+                            {{#each services}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
                 </div>
 
                 <!--          You need to suggest services which have a file in services/ if a user types a service which does not exist in the database, redirect him or her to the service form-->

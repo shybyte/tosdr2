@@ -1,3 +1,5 @@
+@formElementWith: 40em;
+
 body {
   margin: 1em 2em;
 }
@@ -25,7 +27,7 @@ body {
     width: 100%;
 
     @media (min-width: 650px) {
-      width: 600px;
+      width: @formElementWith;
     }
   }
 
@@ -51,7 +53,7 @@ body {
   }
 
   textarea {
-    width: 40em;
+    width: @formElementWith;
     min-height: 5em;
   }
 
@@ -61,11 +63,17 @@ body {
     width: 20em;
   }
 
-  #serviceFields input, #sourceField[type="url"] {
+  #sourceField[type="url"] {
+    width: @formElementWith;
   }
 
   .form-actions {
     padding: 1em 0;
     margin-bottom: 1em;
   }
+
+  .select2-wrapper {
+    width: @formElementWith;
+  }
+
 }
