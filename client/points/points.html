@@ -1,0 +1,16 @@
+<template name="points">
+    <ul>
+    {{#each this}}
+        <li>
+            _ID: {{_id}} <br/>
+            ID: {{id}} <br/>
+            Title: {{title}} <br/>
+            Topics: {{topics}} <br/>
+            Services: {{services}} <br/>
+            Point: {{tosdr.point}} <br/>
+            Summary: {{tosdr.tldr}} <br/>
+            Sources: {{tosdr.sources}} <br/>
+        </li>
+    {{/each}}
+    </ul>
+</template>

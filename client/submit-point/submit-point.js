@@ -30,7 +30,7 @@ Template.submitPoint.events({
     };
     console.log('Save new point:', newPoint);
     Points.insert(newPoint);
-    Router.go('index');
+    Router.go('points');
   }
 })
 
