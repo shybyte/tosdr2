@@ -19,3 +19,7 @@ meteor
 
 Open [http://localhost:3000] (http://localhost:3000) in your browser.
 
+You need to sign in to see something interesting.
+You can sign in/up yourself with the menu in the top right corner.
+Email addresses are currently not verified and "Forgot password ?" does not work.
+
