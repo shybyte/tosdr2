@@ -49,39 +49,18 @@
                            placeholder="http://www.example.com/tos">
                 </div>
 
+
                 <div class="form-group">
-                    <label for="topics">Topic</label>
-                    <select id="topic" class="form-control">
-                        <option>Select a topic</option>
-                        <option>business-transfer</option>
-                        <option>changes</option>
-                        <option>changes-involvement</option>
-                        <option>changes-notice</option>
-                        <option>cookies</option>
-                        <option>copyright-scope</option>
-                        <option>data-export</option>
-                        <option>governance</option>
-                        <option>guarantee</option>
-                        <option>jurisdiction-law</option>
-                        <option>law-enforcement</option>
-                        <option>law-gov</option>
-                        <option>leave</option>
-                        <option>logs-length</option>
-                        <option>meta</option>
-                        <option>ownership</option>
-                        <option>personal information</option>
-                        <option>personal-data</option>
-                        <option>readability</option>
-                        <option>scope of the copyright license</option>
-                        <option>suspension</option>
-                        <option>third</option>
-                        <option>track</option>
-                        <option>tracking</option>
-                        <option>user-choice</option>
-                        <option>user-info</option>
-                        <option>waiver</option>
-                    </select>
+                    <label for="topics">Topics</label>
+                    <div class="select2-wrapper">
+                        <select name="topics" id="topics" multiple class="form-control input-lg select2">
+                            {{#each topics}}
+                                <option value="{{id}}">{{title}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
                 </div>
+
             </fieldset>
             <div class="form-actions">
                 <button class="btn btn-primary btn-large" id="postPoint">Send</button>
