@@ -3,6 +3,12 @@ A web app to submit and review points about services for http://tosdr.org. <br/>
 Written in JavaScript with help of the meteor framework (https://www.meteor.com). <br/>
 Data is saved in a MongoDB. <br/>
 
+## Current state
+
+Highly experimental, incomplete, insecure and not scalable. <br/>
+But a great start for 7 working hours :-)
+
+
 ## How to start in development mode
 
 Install meteor:
