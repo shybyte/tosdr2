@@ -1,21 +1,3 @@
-Template.submitPoint.helpers({
-  services: function () {
-    return Services.find();
-  },
-  topics: function () {
-    return Topics.find();
-  },
-  currentUserEmailAddress: function () {
-    return Meteor.user() ? Meteor.user().emails[0].address : '';
-  }
-
-});
-
-Template.submitPoint.rendered = function () {
-  $("#services").select2({placeholder: "Select at least one service"});
-  $("#topics").select2({placeholder: "Select at least one topic"});
-};
-
 Template.submitPoint.events({
   'submit form': function (event,template) {
     event.preventDefault();
