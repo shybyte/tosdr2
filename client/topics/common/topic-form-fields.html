@@ -1,29 +1,37 @@
 <template name="topicFormFields">
-    <div class="form-group">
-        <label for="id">ID</label>
-        <input class="form-control" id="id" required>
-    </div>
+    {{#if id}}
+        <div class="form-group">
+            <label>ID</label>
+            <div>{{id}}</div>
+        </div>
+    {{else}}
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input class="form-control" id="id" required value="{{id}}">
+        </div>
+    {{/if}}
+
     <div class="form-group">
         <label for="title">Title</label>
-        <input class="form-control" id="title" required>
+        <input class="form-control" id="title" required value="{{title}}">
     </div>
     <div class="form-group">
         <label for="subtitle">Subtitle</label>
-        <input class="form-control" id="subtitle" required>
+        <input class="form-control" id="subtitle" required value="{{subtitle}}">
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea id="description" class="form-control" required></textarea>
+        <textarea id="description" class="form-control" required rows="4">{{description}}</textarea>
     </div>
     <div class="form-group">
         <label>Type</label>
 
         <div>
             <label class="radio-inline">
-                <input type="radio" name="type" value="topic" required checked> Topic
+                <input type="radio" name="type" value="topic" required {{isTypeChecked 'topic'}}> Topic
             </label>
             <label class="radio-inline">
-                <input type="radio" name="type" value="category" required> Category
+                <input type="radio" name="type" value="category" required {{isTypeChecked 'category'}}> Category
             </label>
         </div>
     </div>
@@ -32,7 +40,7 @@
 
         <select id="category" class="form-control">
             <option value="">None</option>
-            {{#each topics}}
+            {{#each categories}}
                 {{>categoryOption}}
             {{/each}}
         </select>
@@ -40,5 +48,5 @@
 </template>
 
 <template name="categoryOption">
-    <option value="{{id}}">{{title}}</option>
+    <option value="{{id}}" {{isSelected ../category}}>{{title}}</option>
 </template>

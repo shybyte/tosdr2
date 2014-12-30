@@ -12,7 +12,11 @@ Template.editPointForm.helpers({
     return this.tosdr.point === pointValue ? 'checked' : '';
   },
   source: function () {
-    return this.tosdr.sources[0] || '';
+    if (this.tosdr.sources && this.tosdr.sources[0]) {
+      return this.tosdr.sources[0];
+    } else {
+      return '';
+    }
   }
 });
 
