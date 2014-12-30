@@ -1,4 +1,5 @@
 var getFieldValue = utils.getFieldValue;
+var getFieldValues = utils.getFieldValues;
 var getRadioValue = utils.getRadioValue;
 
 Template.createService.events({
@@ -8,6 +9,7 @@ Template.createService.events({
       id: getFieldValue(template, 'id'),
       name: getFieldValue(template, 'name'),
       type: getRadioValue(template, 'type'),
+      urls: getFieldValues(template,'.urlInput'),
       submittedBy: Meteor.userId()
     };
     console.log('Save new Service:', newService);

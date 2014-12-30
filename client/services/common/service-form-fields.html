@@ -29,5 +29,13 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label>Urls</label>
+        {{#each currentUrls}}
+            <input class="form-control urlInput" value="{{this}}">
+        {{/each}}
+        <button class="btn btn-default addUrlButton">+</button>
+    </div>
+
 </template>
 

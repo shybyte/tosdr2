@@ -1,4 +1,5 @@
 var getFieldValue = utils.getFieldValue;
+var getFieldValues = utils.getFieldValues;
 var getRadioValue = utils.getRadioValue;
 
 Template.editService.events({
@@ -6,7 +7,8 @@ Template.editService.events({
     event.preventDefault();
     var updatedService = {
       name: getFieldValue(template, 'name'),
-      type: getRadioValue(template, 'type')
+      type: getRadioValue(template, 'type'),
+      urls: getFieldValues(template, '.urlInput')
     };
     console.log('Save Service:', updatedService);
     Services.update(this._id, {$set: updatedService});
