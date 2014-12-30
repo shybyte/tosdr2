@@ -1,19 +1,24 @@
 <template name="points">
     <h2>All Points</h2>
     <ul>
-    {{#each this}}
-        <li>
-            _ID: {{_id}} <br/>
-            ID: {{id}} <br/>
-            Title: {{title}} <br/>
-            Topics: {{topics}} <br/>
-            Services: {{services}} <br/>
-            Point: {{tosdr.point}} <br/>
-            Summary: {{tosdr.tldr}} <br/>
-            Sources: {{tosdr.sources}} <br/>
-            Approved: {{approved}} <br/>
-            submittedBy: {{submittedBy}}
-        </li>
-    {{/each}}
+        {{#each this}}
+          {{>pointListItem}}
+        {{/each}}
     </ul>
+</template>
+
+<template name="pointListItem">
+    <li>
+        _ID: {{_id}} <br/>
+        ID: {{id}} <br/>
+        Title: {{title}} <br/>
+        Topics: {{topics}} <br/>
+        Services: {{services}} <br/>
+        Point: {{tosdr.point}} <br/>
+        Summary: {{tosdr.tldr}} <br/>
+        Sources: {{tosdr.sources}} <br/>
+        Approved: {{approved}} <br/>
+        submittedBy: {{submittedBy}} <br/>
+        <a href="{{pathFor 'editPoint'}}">Edit</a>
+    </li>
 </template>

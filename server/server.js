@@ -23,47 +23,46 @@ Meteor.methods({
     console.log('Started export to file system ...');
 
     var baseDir = '/tmp/tosdr';
+    //var baseDir = '/home/shybyte/workspace/tosdr-build/src';
 
     exportTopicsToFileSystem(baseDir);
     exportServicesToFileSystem(baseDir);
-    exportApprovedPointsToFileSystem(baseDir)
+    exportApprovedPointsToFileSystem(baseDir);
 
     console.log('Finished export to file system.');
   }
 });
 
-function exportTopicsToFileSystem(baseDir) {
-  console.log('Start to export topics ...');
-  var topicsDir = path.join(baseDir, 'topics');
-  mkdirp.sync(topicsDir);
+function exportCollectionToFileSystem(collection, baseDir, directoryName, mongoSelector) {
+  var exportDir = path.join(baseDir, directoryName);
+  mkdirp.sync(exportDir);
 
-  Topics.find().forEach(function (topic) {
-    var writeStream = fs.createWriteStream(path.join(topicsDir, topic.id + '.json'), {flags: 'w'});
-    writeStream.write(JSON.stringify(topic));
+  collection.find(mongoSelector).forEach(function (collectionItem) {
+    var writeStream = fs.createWriteStream(path.join(exportDir, (collectionItem.id || collectionItem._id) + '.json'), {flags: 'w'});
+    writeStream.write(prettyStringify(withoutInternalAttributes(collectionItem)));
     writeStream.end();
   });
+}
+
+function withoutInternalAttributes(object) {
+  return _.omit(object, '_id', 'approved');
+}
+
+function prettyStringify(object) {
+  return JSON.stringify(object, undefined, 2);
+}
+
+function exportTopicsToFileSystem(baseDir) {
+  console.log('Start to export topics ...');
+  exportCollectionToFileSystem(Topics, baseDir, 'topics');
 }
 
 function exportServicesToFileSystem(baseDir) {
   console.log('Start to export services ...');
-  var servicesDir = path.join(baseDir, 'services');
-  mkdirp.sync(servicesDir);
-
-  Services.find().forEach(function (service) {
-    var writeStream = fs.createWriteStream(path.join(servicesDir, service.id + '.json'), {flags: 'w'});
-    writeStream.write(JSON.stringify(service));
-    writeStream.end();
-  });
+  exportCollectionToFileSystem(Services, baseDir, 'services');
 }
 
 function exportApprovedPointsToFileSystem(baseDir) {
   console.log('Start to export approved points ...');
-  var pointsDir = path.join(baseDir, 'points');
-  mkdirp.sync(pointsDir);
-
-  Points.find({approved: true}).forEach(function (point) {
-    var writeStream = fs.createWriteStream(path.join(pointsDir, (point.id || point._id) + '.json'), {flags: 'w'});
-    writeStream.write(JSON.stringify(point));
-    writeStream.end();
-  });
+  exportCollectionToFileSystem(Points, baseDir, 'points', {approved: true});
 }
