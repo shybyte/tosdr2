@@ -1,0 +1,33 @@
+<template name="serviceFormFields">
+    {{#if id}}
+        <div class="form-group">
+            <label>ID</label>
+
+            <div>{{id}}</div>
+        </div>
+    {{else}}
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input class="form-control" id="id" required value="{{id}}">
+        </div>
+    {{/if}}
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" id="name" required value="{{name}}">
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+
+        <div>
+            <label class="radio-inline">
+                <input type="radio" name="type" value="service" required {{isTypeChecked 'service'}}> Service
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="type" value="software" required {{isTypeChecked 'software'}}> Software
+            </label>
+        </div>
+    </div>
+
+</template>
+

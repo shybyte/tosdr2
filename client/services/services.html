@@ -2,10 +2,19 @@
     <h2>Services</h2>
     <ul>
     {{#each this}}
-        <li>
-            ID: {{id}} <br/>
-            Name: {{name}} <br/>
-        </li>
+        {{>serviceListItem}}
     {{/each}}
     </ul>
+</template>
+
+<template name="serviceListItem">
+    <li>
+        ID: {{id}} <br/>
+        Name: {{name}} <br/>
+        Type: {{type}} <br/>
+        Urls: {{urls}} <br/>
+        SubmittedBy: {{submittedBy}} <br/>
+        <button class="deleteButton btn btn-danger">Delete</button>
+        <a href="{{pathFor 'editService'}}">Edit</a>
+    </li>
 </template>
