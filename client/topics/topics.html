@@ -2,15 +2,22 @@
     <h2>Topics</h2>
     <ul>
     {{#each this}}
-        <li>
-            ID: {{id}} <br/>
-            Title: {{title}} <br/>
-            Subtitle: {{subtitle}} <br/>
-            Description: {{description}} <br/>
-            Type: {{type}} <br/>
-            Category: {{category}} <br/>
-            SubmittedBy: {{submittedBy}} <br/>
-        </li>
+        {{> topicListItem}}
     {{/each}}
     </ul>
 </template>
+
+<template name="topicListItem">
+    <li>
+        ID: {{id}} <br/>
+        Title: {{title}} <br/>
+        Subtitle: {{subtitle}} <br/>
+        Description: {{description}} <br/>
+        Type: {{type}} <br/>
+        Category: {{category}} <br/>
+        SubmittedBy: {{submittedBy}} <br/>
+        <button class="deleteButton btn btn-danger">Delete</button>
+    </li>
+</template>
+
+
