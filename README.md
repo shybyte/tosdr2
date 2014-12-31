@@ -6,7 +6,7 @@ Data is saved in a MongoDB. <br/>
 ## Current state
 
 Highly experimental, incomplete, insecure and not scalable. <br/>
-But a great start for 7 working hours :-)
+But a great start for 21 working hours :-)
 
 
 ## How to start in development mode
