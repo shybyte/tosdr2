@@ -1,9 +1,9 @@
 <template name="services">
     <h2>Services</h2>
     <ul>
-    {{#each this}}
-        {{>serviceListItem}}
-    {{/each}}
+        {{#each this}}
+            {{>serviceListItem}}
+        {{/each}}
     </ul>
 </template>
 
@@ -14,7 +14,9 @@
         Type: {{type}} <br/>
         Urls: {{urls}} <br/>
         SubmittedBy: {{submittedBy}} <br/>
-        <button class="deleteButton btn btn-danger">Delete</button>
-        <a href="{{pathFor 'editService'}}">Edit</a>
+        {{#if isModerator}}
+            <button class="deleteButton btn btn-danger">Delete</button>
+            <a href="{{pathFor 'editService'}}">Edit</a>
+        {{/if}}
     </li>
 </template>

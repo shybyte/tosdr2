@@ -29,3 +29,25 @@ You need to sign in to see something interesting.
 You can sign in/up yourself with the menu in the top right corner.
 Email addresses are currently not verified and "Forgot password ?" does not work.
 
+## How to make a user to a moderator
+
+The most functionality is hidden from normal users. Therefore you need to make one user to a moderator in order to see
+all functionality.
+
+First you need to open the mongo shell in parallel to the running meteor app.
+```shell
+meteor mongo
+```
+Then you need to find the correct user id and add the role
+
+```javascript
+db.users.find().pretty() // find _id
+db.users.update({_id: 'USER_ID'},{$set: {roles: {moderator: true}}})
+db.users.find().pretty() // should have roles attribute now
+```
+You can get the user of the current logged in user also in the browsers console by
+
+```javascript
+Meteor.userId()
+```
+

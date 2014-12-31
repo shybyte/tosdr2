@@ -13,10 +13,18 @@ Meteor.publish('topics', function () {
   return Topics.find();
 });
 
+Meteor.publish(null, function () {
+  if (this.userId) {
+    return Meteor.users.find({_id: this.userId}, {fields: {roles: 1}});
+  } else {
+    this.ready();
+  }
+});
 
 Meteor.methods({
   publishToApi: function () {
-    if (!Meteor.userId()) {
+    if (!utils.isModerator()) {
+      console.log('not-authorized user tried to access publishToApi');
       throw new Meteor.Error("not-authorized");
     }
 

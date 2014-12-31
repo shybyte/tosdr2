@@ -1,9 +1,9 @@
 <template name="topics">
     <h2>Topics</h2>
     <ul>
-    {{#each this}}
-        {{> topicListItem}}
-    {{/each}}
+        {{#each this}}
+            {{> topicListItem}}
+        {{/each}}
     </ul>
 </template>
 
@@ -16,8 +16,10 @@
         Type: {{type}} <br/>
         Category: {{category}} <br/>
         SubmittedBy: {{submittedBy}} <br/>
-        <button class="deleteButton btn btn-danger">Delete</button>
-        <a href="{{pathFor 'editTopic'}}">Edit</a>
+        {{#if isModerator}}
+            <button class="deleteButton btn btn-danger">Delete</button>
+            <a href="{{pathFor 'editTopic'}}">Edit</a>
+        {{/if}}
     </li>
 </template>
 

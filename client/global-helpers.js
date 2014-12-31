@@ -1,0 +1,1 @@
+Template.registerHelper('isModerator', utils.isModerator);
