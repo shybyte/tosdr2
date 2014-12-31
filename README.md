@@ -51,3 +51,12 @@ You can get the user of the current logged in user also in the browsers console 
 Meteor.userId()
 ```
 
+## Import from [tosdr-build] (https://github.com/tosdr/tosdr-build)
+
+Please see [.tools/import.sh](.tools/import.sh)
+
+## Publish/Export
+
+As moderator you can export (=publish) points, services and topics to the file system.
+Currently it's written to '/tmp/tosdr'. The exported files should be compatible with
+the one imported from tosdr-build.
